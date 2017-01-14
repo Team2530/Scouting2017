@@ -10,16 +10,34 @@
 
 <body>
 <form>
-<div class="row">
-	<div class ="col-md-6">
-		<label for="teamname">Team name</label>
-		<input type="text" id="teamname" class ="form-input">
+<ul class="nav nav-tabs">
+  <li class="active"><a data-toggle="tab" href="#general">General</a></li>
+  <li><a href="#autonomous">Autonomous</a></li>
+  <li><a href="#tele-op">Tele-op</a></li>
+  <li><a href="#comments">Comments</a></li>
+</ul>
+<divclass = "tab-content'">
+	<div id="general" class="tab-pane fade in active">
+		<div class="row">
+			<div class ="col-md-6">
+				<label for="teamname">Team name</label>
+				<input type="text" id="teamname" class ="form-input">
+			</div>
+			<div class = "col-md-6">
+				<label for ="teamnumber">Team number</label>
+				<input type="text" id="teamnumber" class="form-input">
+			</div>
+		</div>
 	</div>
-	<div class = "col-md-6">
-	<label for ="teamnumber">Team number</label>
-	<input type="text" id="teamnumber" class="form-input">
+	<div id="autonomous" class="tab-pane fade in active">
+		content
 	</div>
-
+	<div id ="tele-op" class="tab-pane fade in active">
+		content
+	</div>
+	<div id="comment" class="tab-pane fade in active">
+		content
+	</div>
 </div>
 </form>
 </body>
