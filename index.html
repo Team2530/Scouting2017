@@ -31,8 +31,8 @@
 		</div>
 		<div class="row">
 			<div class="col-md-6">
-				<div id="robotpicture" style="height: 200px">
-				</div>
+				<!--<div id="robotpicture" style="height: 200px">
+				</div>-->
 				<label for="robotpicture">Robot Picture</label>
 			</div>
 			<div class="col-md-6">
@@ -68,16 +68,70 @@
 			</div>
 			
 		</div>
-		<div class="row">
-			<div class="col-md-6">
-			</div>
-			<div class="col-md-6">
-
-			</div>
-		</div>
+<!-- -->
 	</div>
 	<div id="autonomous" class="tab-pane fade">
-		content
+		<div class="col-md-6">
+			<label for="fuelcollection">Fuel Collection</label>
+		</div>
+			<div class="col-md-6">
+				<label for="geardelivery">Gear Delivery</label>
+			</div>
+			<div class="row">
+				<div class="col-md-6">
+					<label for="high">High</label>
+					<button id="high+"onclick="addOne()">
+					+
+					</button>
+					<button id="high-" onclick="minusOne()">
+					-
+					</button>
+					<label for="score">Score:</label>
+					<label for="low">Low</label>
+					<button id="low+" onclick="addOne()">
+					+
+					</button>
+					<button id="low-" onclick="minusOne()">
+					-
+					</button>
+					<label for="score">Score:</label>
+				</div>
+				<div class="col-md-6">
+					<input type="checkbox" id="yes">
+					<label for="yes">yes</label>
+					<input type="checkbox" id="no">
+					<label for="no">no</label>
+					<input type="checkbox" id="maybe">
+					<label for="maybe">maybe</label>
+				</div>
+
+			</div>
+
+			<div class="row">
+				<div class="col-md-6">
+					<label for="didtheymove">Did they move?</label>
+				</div>
+				<div class="col-md-6">
+					<label for="penalty">Penalty</label>
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-md-6">
+					<input type="checkbox" id="yes">
+					<label for="yes">yes</label>
+					<input type="checkbox" id="no">
+					<label for="no">no</label>
+					<input type="checkbox" id="crossedbaseline">
+					<label for="crossedbaseline">crossed base line</label>
+				</div>
+				<div class="col-md-6">
+					<input type="checkbox" id="yes">
+					<label for="yes">yes</label>
+					<input type="checkbox" id="no">
+					<label for="no">no</label>
+				</div>
+			
+			</div>
 	</div>
 	<div id ="tele-op" class="tab-pane fade">
 		content
