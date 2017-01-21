@@ -74,27 +74,29 @@
 	<div id="autonomous" role="tabpanel" class="tab-pane">
 		<div class="col-md-6">
 			<label for="fuelcollection">Fuel Collection</label>
+			<div id="fuelcollection">
+			</div>
 		</div>
 			<div class="col-md-6">
 				<label for="geardelivery">Gear Delivery</label>
+				<div id="geardelivery">
+				</div>
 			</div>
 			<div class="row">
 				<div class="col-md-6">
-					<label for="high">High</label>
-					<button id="high+"onclick="addOne()">
-					+
-					</button>
-					<button id="high-" onclick="minusOne()">
-					-
-					</button>
+					<label for="high+">High</label>
+
+					<input type="button" value="+" id="high+"onclick="addOne()">
+					
+					<label for="high-"></label>
+					<input type="button" value ="-" id="high-" onclick="minusOne()">
 					<label for="score">Score:</label>
-					<label for="low">Low</label>
-					<button id="low+" onclick="addOne()">
-					+
-					</button>
-					<button id="low-" onclick="minusOne()">
-					-
-					</button>
+					<div id="score">
+					</div>
+					<label for="low+">Low</label>
+					<input type="button" value = "+" id="low+" onclick="addOne()">
+					<label for="low-"></label>
+					<input type="button" value="-" id="low-" onclick="minusOne()">
 					<label for="score">Score:</label>
 				</div>
 				<div class="col-md-6">
