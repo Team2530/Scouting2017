@@ -6,6 +6,7 @@
 <link href="css/bootstrap.min.css" rel="stylesheet">
 <script src="js/jquery-3.1.1.min.js"></script>
 <script src="js/bootstrap.min.js"></script>
+<script src="js/main.js"></script>
     <link src="css/main.css" rel="stylesheet">
 </head>
 
@@ -86,17 +87,20 @@
 				<div class="col-md-6">
 					<label for="high+">High</label>
 
-					<input type="button" value="+" id="high+"onclick="addOne()">
-					
+					<input type="button" value="+" id="high+">
+					<div id="highHits"></div>
 					<label for="high-"></label>
-					<input type="button" value ="-" id="high-" onclick="minusOne()">
+					<input type="button" value ="-" id="high-">
+					<div id="highMisses"></div>
 					<label for="score">Score:</label>
 					<div id="score">
 					</div>
 					<label for="low+">Low</label>
-					<input type="button" value = "+" id="low+" onclick="addOne()">
+					<input type="button" value = "+" id="low+">
+					<div id="lowHits"></div>
 					<label for="low-"></label>
-					<input type="button" value="-" id="low-" onclick="minusOne()">
+					<input type="button" value="-" id="low-">
+					<div id="lowMisses"></div>
 					<label for="score">Score:</label>
 				</div>
 				<div class="col-md-6">
