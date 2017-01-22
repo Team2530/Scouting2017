@@ -24,6 +24,18 @@ var createTeleopStatement = "CREATE TABLE tele_op IF NOT EXISTS(id INTEGER PRIMA
 var createCommentsStatement = "CREATE TABLE comments IF NOT EXISTS(id INTEGER PRIMARY KEY AUTOINCREMENT," +
     "team_num INTEGER, match_num INTEGER, comments NONE)";
 
+var insertGeneralStatement = "INSERT INTO general (team_num, team_name, scout_name, match_num, event, " +
+    "robot_play, cur_robo_rank) VALUES (?,?,?,?,?,?,?)";
+
+var insertAutoStatement = "INSERT INTO general (team_num,  match_num,  " +
+    "high_score, low_score, gear_del, move, penalty, cross_bl) VALUES (?,?,?,?,?,?,?,?)";
+
+var insertTeleopStatement = "INSERT INTO general (team_num,  match_num,  " +
+    ") VALUES (?,?,?,?,?,?,?)";
+
+var insertCommentStatement = "INSERT INTO general (team_num,  match_num,  " +
+    ") VALUES (?,?,?,?,?,?,?)";
+
 function createGeneralTable() {
  database.transaction(function(tx){
         tx.executeSql(createGeneralStatement);
