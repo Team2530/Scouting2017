@@ -6,7 +6,8 @@
 <link href="css/bootstrap.min.css" rel="stylesheet">
 <script src="js/jquery-3.1.1.min.js"></script>
 <script src="js/bootstrap.min.js"></script>
-    <link src="css/main.css" rel="stylesheet">
+<script src="js/main2.js"></script>
+	<link href="css/main.css" rel="stylesheet">
 </head>
 
 <body>
@@ -80,27 +81,32 @@
 	<div id="autonomous" role="tabpanel" class="tab-pane">
 		<div class="col-md-6">
 			<label for="fuelcollection">Fuel Collection</label>
+			<div id="fuelcollection">
+			</div>
 		</div>
 			<div class="col-md-6">
 				<label for="geardelivery">Gear Delivery</label>
+				<div id="geardelivery">
+				</div>
 			</div>
 			<div class="row">
 				<div class="col-md-6">
-					<label for="high">High</label>
-					<button id="high+"onclick="addOne()">
-					+
-					</button>
-					<button id="high-" onclick="minusOne()">
-					-
-					</button>
+					<label for="highPlus">High</label>
+
+					<input type="button" value="+" id="highPlus">
+					<span id="highHits"></span>
+					<label for="highMinus"></label>
+					<input type="button" value ="-" id="highMinus">
+					<span id="highMisses"></span>
 					<label for="score">Score:</label>
-					<label for="low">Low</label>
-					<button id="low+" onclick="addOne()">
-					+
-					</button>
-					<button id="low-" onclick="minusOne()">
-					-
-					</button>
+					<span id="score">
+					</span>
+					<label for="lowPlus">Low</label>
+					<input type="button" value = "+" id="lowPlus">
+					<span id="lowHits"></span>
+					<label for="lowMinus"></label>
+					<input type="button" value="-" id="lowMinus">
+					<span id="lowMisses"></span>
 					<label for="score">Score:</label>
 				</div>
 				<div class="col-md-6">
@@ -144,7 +150,8 @@
 		content
 	</div>
 	<div id="comment" role="tabpanel" class="tab-pane ">
-		content
+		<textarea rows="4" cols="50" id="comments">Comments</textarea>
+		<input type="button" id="save" value ="Save">
 	</div>
 </div>
 </div>
