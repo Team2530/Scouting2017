@@ -18,7 +18,7 @@ var createAutoStatement =  "CREATE TABLE auto IF NOT EXISTS(id INTEGER PRIMARY K
 
 var createTeleopStatement = "CREATE TABLE tele_op IF NOT EXISTS(id INTEGER PRIMARY KEY AUTOINCREMENT," +
     "team_num INTEGER, match_num INTGER, high_score INTEGER, low_score INTEGER, floor_col TEXT, " +
-    "hopper_col TEXT, human_load TEXT, gears_del INTEGER, pickuo TEXT, pickup_hu TEXT, " +
+    "hopper_col TEXT, human_load TEXT, gears_del INTEGER, pickup TEXT, pickup_hu TEXT, " +
     "dropped_gear INTEGER, rope TEXT, penalties INTEGER)";
 
 var createCommentsStatement = "CREATE TABLE comments IF NOT EXISTS(id INTEGER PRIMARY KEY AUTOINCREMENT," +
@@ -31,10 +31,11 @@ var insertAutoStatement = "INSERT INTO general (team_num,  match_num,  " +
     "high_score, low_score, gear_del, move, penalty, cross_bl) VALUES (?,?,?,?,?,?,?,?)";
 
 var insertTeleopStatement = "INSERT INTO general (team_num,  match_num,  " +
-    ") VALUES (?,?,?,?,?,?,?)";
+    "high_score, low_score, floor_col, hopper_col, human_load, gears_del, pickup, pickup_hu, dropped_gear, rope," +
+    " penalties) VALUES (?,?,?,?,?,?,?,?,?,?,?,?)";
 
 var insertCommentStatement = "INSERT INTO general (team_num,  match_num,  " +
-    ") VALUES (?,?,?,?,?,?,?)";
+    "comments) VALUES (?,?,?)";
 
 function createGeneralTable() {
  database.transaction(function(tx){
