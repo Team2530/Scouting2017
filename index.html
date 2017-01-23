@@ -44,8 +44,14 @@
 					<input type="text" id="matchnumber" class="form-control">
 				</div>
 				<div class="row">
-					    <label>Event: </label>
+					    <label for="event">Event: </label>
 					<!---<input type="checkbox" id="event">-->
+					<select id="event">
+						<option value="Week Zero">Week Zero</option>
+						<option value="Iowa">Iowa</option>'
+						<option value="La Crosse">La Crosse</option>
+						<option value="Championship">Championship</option>
+					</select>
 						<input type="checkbox" id="weekzero">
 						<label for="weekzero">Week Zero</label>
 						<input type="checkbox" id="iowa">
@@ -56,11 +62,11 @@
 						<label for="champ">Champ</label>
 				</div>
 				<div class="row">
-					<label >Did the robot play?</label>
-					<input type="checkbox" id="yes">
-					<label for="yes">yes</label>
-					<input type="checkbox" id="no">
-					<label for="no">no</label>
+					<label for="robotPlay">Did the robot play?</label>
+					 <select id="robotPlay">
+						 <option value="Yes">Yes</option>
+						 <option value="No">No</option>
+					 </select>
 				</div>
 				<div class="row">
 					<label for="currentrobotranking">Current robot ranking:</label>
