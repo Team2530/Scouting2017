@@ -20,7 +20,7 @@ var insertCommentStatement = "INSERT INTO general (team_num,  match_num,  " +
     "comments) VALUES (?,?,?)";
 
 function createGeneralTable() {
-    var createGeneralStatement = "CREATE TABLE general IF NOT EXISTS(id INTEGER PRIMARY KEY AUTOINCREMENT," +
+    var createGeneralStatement = "CREATE TABLE IF NOT EXISTS general (id INTEGER PRIMARY KEY AUTOINCREMENT," +
         "team_num TEXT, team_name TEXT, scout_name TEXT, match_num TEXT, event TEXT, " +
         "robot_play TEXT, cur_robo_rank TEXT)";
 
@@ -35,7 +35,7 @@ function createGeneralTable() {
 }
 
 function createAutoTable() {
-    var createAutoStatement =  "CREATE TABLE auto IF NOT EXISTS(id INTEGER PRIMARY KEY AUTOINCREMENT," +
+    var createAutoStatement =  "CREATE TABLE IF NOT EXISTS auto (id INTEGER PRIMARY KEY AUTOINCREMENT," +
         "team_num TEXT, match_num TEXT, high_score TEXT, low_score TEXT, " +
         "gear_del TEXT, move TEXT, penalty TEXT, cross_bl TEXT )";
 
@@ -49,7 +49,7 @@ function createAutoTable() {
 }
 
 function createTeleopTable() {
-    var createTeleopStatement = "CREATE TABLE tele_op IF NOT EXISTS(id INTEGER PRIMARY KEY AUTOINCREMENT," +
+    var createTeleopStatement = "CREATE TABLE IF NOT EXISTS tele_op (id INTEGER PRIMARY KEY AUTOINCREMENT," +
         "team_num TEXT, match_num TEXT, high_score TEXT, low_score TEXT, floor_col TEXT, " +
         "hopper_col TEXT, human_load TEXT, gears_del TEXT, pickup TEXT, pickup_hu TEXT, " +
         "dropped_gear INTEGER, rope TEXT, penalties TEXT)";
@@ -63,7 +63,7 @@ function createTeleopTable() {
 }
 
 function createCommentsTable() {
-    var createCommentsStatement = "CREATE TABLE comments IF NOT EXISTS(id INTEGER PRIMARY KEY AUTOINCREMENT," +
+    var createCommentsStatement = "CREATE TABLE IF NOT EXISTS comment(id INTEGER PRIMARY KEY AUTOINCREMENT," +
         "team_num TEXT, match_num TEXT, comments NONE)";
 
     database.transaction(function(tx){
@@ -86,10 +86,19 @@ function insertGeneral() {
     var event = "";
     var robotPlay = "Yes";
     var robotRank = "0";
-
+    var dataset = null;
     database.transaction(function (tx) {
        tx.executeSql(insertGeneralStatement, [teamNum, teamName, scoutName, matchNum, event, robotPlay, robotRank]);
+        tx.executeSql("SELECT last_insert_rowid()", [], function (tx, result) {
+            dataset = result;
+        });
     });
+
+
+    database.transaction(function (tx) {
+
+    });
+    return dataset;
 }
 
 //This function is to update a key value pair in the specified table
@@ -112,7 +121,14 @@ function updateTeamName(id) {
     updateTable("general", "team_name",$('#teamname').val(), id);
 }
 
-function updateScoutName() {
+function updateScoutName(id) {
     updateTable("general", "scout_name", $('#scoutname').val(), id);
 }
 
+function updateMatchNum(id) {
+    var num = $('#matchnumber').val();
+    updateTable("general", "match_num",num, id);
+    updateTable("auto", "match_num", num, id);
+    updateTable("tele_op", "match_num", num, id);
+    updateTable("comments", "match_num",num, id);
+}
