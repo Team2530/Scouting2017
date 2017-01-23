@@ -4,12 +4,19 @@ $(document).ready(function () {
     createAutoTable();
     createTeleopTable();
 
+    var scoutname;
+    var matchNumer ;
+    var team;
     $('#start').on("click", function () {
+        scoutname =$('#scoutname').val();
+        matchNumer = $('#matchnumber').val();
+        team = $('#teamnumber').val();
         $('#newmatch-modal').modal('hide');
-        var id = insertGeneral();
-        updateScoutName(id);
-        updateTeamNum(id);
-        updateMatchNum(id);
+        insertGeneral( scoutname,matchNumer, team);
+    });
+
+    $('#teamname').on('blur', function () {
+        updateTeamName(matchNumer, scoutname, team, "general");
     });
 
 });

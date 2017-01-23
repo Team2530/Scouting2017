@@ -20,7 +20,7 @@ var insertCommentStatement = "INSERT INTO general (team_num,  match_num,  " +
     "comments) VALUES (?,?,?)";
 
 function createGeneralTable() {
-    var createGeneralStatement = "CREATE TABLE IF NOT EXISTS general (id INTEGER PRIMARY KEY AUTOINCREMENT," +
+    var createGeneralStatement = "CREATE TABLE IF NOT EXISTS general (" +
         "team_num TEXT, team_name TEXT, scout_name TEXT, match_num TEXT, event TEXT, " +
         "robot_play TEXT, cur_robo_rank TEXT)";
 
@@ -75,14 +75,14 @@ function createCommentsTable() {
     });
 }
 
-function insertGeneral() {
+function insertGeneral(scoutname, matchnum, teamnum) {
     var insertGeneralStatement = "INSERT INTO general (team_num, team_name, scout_name, match_num, event, " +
         "robot_play, cur_robo_rank) VALUES (?,?,?,?,?,?,?)";
 
-    var teamNum = "0";
+    var teamNum = teamnum;
     var teamName = "";
-    var scoutName = "";
-    var matchNum = "0";
+    var scoutName = scoutname;
+    var matchNum = matchnum;
     var event = "";
     var robotPlay = "Yes";
     var robotRank = "0";
@@ -103,7 +103,7 @@ function insertGeneral() {
 
 //This function is to update a key value pair in the specified table
 function updateTable(table, key, value,  id) {
-    var updateStatement = "UPDATE "+ table+" SET " + key + " = " + value+ "WHERE id = " + id;
+    var updateStatement = "UPDATE "+ table+" SET " + key + " = " + value+ " WHERE id = " + id;
     database.transaction(function (tx) {
         tx.executeSql(updateStatement);
     });
@@ -131,4 +131,15 @@ function updateMatchNum(id) {
     updateTable("auto", "match_num", num, id);
     updateTable("tele_op", "match_num", num, id);
     updateTable("comments", "match_num",num, id);
+}
+
+function selectPK(match, scout, team, table) {
+    var select = "SELECT id from " + table+ " where match_num = " +match + " and  scout_name = " +scout +
+            " and team = " + team;
+    
+    database.transaction(function (tx) {
+        tx.executeSql(select, [], function (tx, results) {
+            console.log(results.rows.length);
+        });
+    });
 }
