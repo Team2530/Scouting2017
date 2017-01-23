@@ -92,15 +92,27 @@ function insertGeneral() {
     });
 }
 
-function upDateGeneral() {
-    var teamNum = $('#teamnumber').val();
-    var teamName = $('#teamname').val();
-    var scoutName = $('#scoutname').val();
-    var matchNum = $('#matchnumber').val();
-    var eventselection = $('#event').val();
-    var robotplay = $('#robotPlay').val();
-    var robotRank = $('#currentrobotranking').val();
-
-    var updateGeneralStatement = "UPDATE general(team_num, team_name, scout_name, match_num, event, robot_play, " +
-        "cur_robo_rank) VALUES (?,?,?,?,?,?,?)"
+//This function is to update a key value pair in the specified table
+function updateTable(table, key, value,  id) {
+    var updateStatement = "UPDATE "+ table+" SET " + key + " = " + value+ "WHERE id = " + id;
+    database.transaction(function (tx) {
+        tx.executeSql(updateStatement);
+    });
 }
+
+function updateTeamNum(id) {
+    var teamNum =  $('#teamnumber').val();
+    updateTable("general", "team_num",teamNum, id);
+    updateTable("auto", "team_num", teamNum, id);
+    updateTable("tele_op", "team_num", teamNum, id);
+    updateTable("comments", "team_num",teamNum, id);
+}
+
+function updateTeamName(id) {
+    updateTable("general", "team_name",$('#teamname').val(), id);
+}
+
+function updateScoutName() {
+    updateTable("general", "scout_name", $('#scoutname').val(), id);
+}
+

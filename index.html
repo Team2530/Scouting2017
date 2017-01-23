@@ -13,6 +13,25 @@
 <body>
 <form>
 <div class="container">
+	<div class="modal fade" id="newmatch-modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" style="display: none;">
+		<div class="modal-dialog">
+			<div class="modal-content loginmodal-container">
+				<div class="modal-header" align="center">
+					<h2>New Match!</h2>
+					</div>
+				<div class="modal-body">
+					<label for="matchnumber">Match Number</label>
+					<input id="matchnumber" class="form-control" type="text">
+					<label for="teamnumber" >Team Number</label>
+					<input id="teamnumber" class="form-control" type="text">
+					<label for="scoutname">Scout Name</label>
+					<input id="scoutname" class="form-control" type="text">
+					<br>
+					<input type="button" class="btn" value="START!">
+				</div>
+			</div>
+		</div>
+	</div>
 <ul class="nav nav-tabs" role="tablist">
   <li class="active"><a data-toggle="tab" href="#general">General</a></li>
   <li><a data-toggle="tab" href="#autonomous">Autonomous</a></li>
@@ -23,12 +42,11 @@
 	<div id="general" role="tabpanel" class="tab-pane active">
 		<div class="row">
 			<div class="col-md-6">
-				<label for="teamname">Team name</label>
-				<input type="text" id="teamname" class ="form-control">
+
 			</div>
 			<div class="col-md-6">
-				<label for="teamnumber">Team number</label>
-				<input type="text" id="teamnumber" class="form-control">
+				<label for="teamname">Team name</label>
+				<input type="text" id="teamname" class ="form-control">
 			</div>
 		</div>
 		<div class="row">
@@ -38,12 +56,6 @@
 				<label for="robotpicture">Robot Picture</label>
 			</div>
 			<div class="col-md-6">
-				<label for="scoutname">Scout name</label>
-				<input type="text" id="scoutname" class="form-control">
-				<div class="row">
-					<label for= "matchnumber">Match number</label>
-					<input type="text" id="matchnumber" class="form-control">
-				</div>
 				<div class="row">
 					    <label for="event">Event: </label>
 					<!---<input type="checkbox" id="event">-->
@@ -53,14 +65,6 @@
 						<option value="La Crosse">La Crosse</option>
 						<option value="Championship">Championship</option>
 					</select>
-						<input type="checkbox" id="weekzero">
-						<label for="weekzero">Week Zero</label>
-						<input type="checkbox" id="iowa">
-						<label for="iowa">Iowa</label>
-						<input type="checkbox" id="lax">
-						<label for="lax">LAX</label>
-						<input type="checkbox" id="champ">
-						<label for="champ">Champ</label>
 				</div>
 				<div class="row">
 					<label for="robotPlay">Did the robot play?</label>
@@ -156,6 +160,11 @@
 </div>
 </div>
 </form>
+<script type="text/javascript">
+	$(function () {
+		$('#newmatch-modal').modal();
+	})
+</script>
 </body>
 
 </html>
