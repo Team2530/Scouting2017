@@ -16,7 +16,7 @@ $(document).ready(function () {
     });
 
     $('#teamname').on('blur', function () {
-        updateTeamName(matchNumer, scoutname, team, "general");
+        updateTeamName(selectPK(matchNumer,scoutname,team,"general"));
     });
 
 });
