@@ -20,7 +20,7 @@ var insertCommentStatement = "INSERT INTO general (team_num,  match_num,  " +
     "comments) VALUES (?,?,?)";
 
 function createGeneralTable() {
-    var createGeneralStatement = "CREATE TABLE IF NOT EXISTS general (" +
+    var createGeneralStatement = "CREATE TABLE IF NOT EXISTS general (id INTEGER PRIMARY KEY AUTOINCREMENT," +
         "team_num TEXT, team_name TEXT, scout_name TEXT, match_num TEXT, event TEXT, " +
         "robot_play TEXT, cur_robo_rank TEXT)";
 
@@ -134,8 +134,8 @@ function updateMatchNum(id) {
 }
 
 function selectPK(match, scout, team, table) {
-    var select = "SELECT id from " + table+ " where match_num = " +match + " and  scout_name = " +scout +
-            " and team = " + team;
+    var select = "SELECT rowid from " + table+ " where match_num = " +match + " and  scout_name = " +scout +
+            " and team_num = " + team;
     
     database.transaction(function (tx) {
         tx.executeSql(select, [], function (tx, results) {
