@@ -1,4 +1,4 @@
-<DOCTYPE html>
+<!DOCTYPE html>
 <html>
 <head>
 <meta charset = "UTF-8">
@@ -6,27 +6,28 @@
 <link href="css/bootstrap.min.css" rel="stylesheet">
 <script src="js/jquery-3.1.1.min.js"></script>
 <script src="js/bootstrap.min.js"></script>
+    <link src="css/main.css" rel="stylesheet">
 </head>
 
 <body>
 <form>
 <div class="container">
-<ul class="nav nav-tabs">
+<ul class="nav nav-tabs" role="tablist">
   <li class="active"><a data-toggle="tab" href="#general">General</a></li>
   <li><a data-toggle="tab" href="#autonomous">Autonomous</a></li>
   <li><a data-toggle="tab" href="#tele-op">Tele-op</a></li>
-  <li><a data-toggle="tab" href="#comments">Comments</a></li>
+  <li><a data-toggle="tab" href="#comment">Comments</a></li>
 </ul>
-<div class = "tab-content'">
-	<div id="general" class="tab-pane fade in active">
+<div class = "tab-content">
+	<div id="general" role="tabpanel" class="tab-pane active">
 		<div class="row">
 			<div class="col-md-6">
 				<label for="teamname">Team name</label>
-				<input type="text" id="teamname" class ="form-input">
+				<input type="text" id="teamname" class ="form-control">
 			</div>
 			<div class="col-md-6">
 				<label for="teamnumber">Team number</label>
-				<input type="text" id="teamnumber" class="form-input">
+				<input type="text" id="teamnumber" class="form-control">
 			</div>
 		</div>
 		<div class="row">
@@ -37,13 +38,13 @@
 			</div>
 			<div class="col-md-6">
 				<label for="scoutname">Scout name</label>
-				<input type="text" id="scoutname" class="form-input">
+				<input type="text" id="scoutname" class="form-control">
 				<div class="row">
 					<label for= "matchnumber">Match number</label>
-					<input type="text" id="matchnumber" class="form-input">	
+					<input type="text" id="matchnumber" class="form-control">
 				</div>
 				<div class="row">
-					<label for="event">Event: </label>
+					    <label>Event: </label>
 					<!---<input type="checkbox" id="event">-->
 						<input type="checkbox" id="weekzero">
 						<label for="weekzero">Week Zero</label>
@@ -55,129 +56,181 @@
 						<label for="champ">Champ</label>
 				</div>
 				<div class="row">
-					<label for="didtherobotplay">Did the robot play?</label>
-					<input type="checkbox" id="didtherobotplay">
+					<label >Did the robot play?</label>
+					<input type="checkbox" id="yes">
 					<label for="yes">yes</label>
-					<input type="checkbox" id="didtherobotplay">
+					<input type="checkbox" id="no">
 					<label for="no">no</label>
 				</div>
 				<div class="row">
 					<label for="currentrobotranking">Current robot ranking:</label>
-					<input type="text" id="currentrobotranking">
+					<input type="text" id="currentrobotranking" class="form-control">
 				</div>
 			</div>
 			
 		</div>
-		<div class="row">
-			<div class="col-md-6">
-			</div>
-			<div class="col-md-6">
-
-			</div>
-		</div>
+<!-- -->
 	</div>
-	<div id="autonomous" class="tab-pane fade">
-     content
+	<div id="autonomous" role="tabpanel" class="tab-pane">
+		<div class="col-md-6">
+			<label for="fuelcollection">Fuel Collection</label>
+			<div id="fuelcollection">
+			</div>
+		</div>
+			<div class="col-md-6">
+				<label for="geardelivery">Gear Delivery</label>
+				<div id="geardelivery">
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-md-6">
+					<label for="high+">High</label>
+
+					<input type="button" value="+" id="high+"onclick="addOne()">
+					
+					<label for="high-"></label>
+					<input type="button" value ="-" id="high-" onclick="minusOne()">
+					<label for="score">Score:</label>
+					<div id="score">
+					</div>
+					<label for="low+">Low</label>
+					<input type="button" value = "+" id="low+" onclick="addOne()">
+					<label for="low-"></label>
+					<input type="button" value="-" id="low-" onclick="minusOne()">
+					<label for="score">Score:</label>
+				</div>
+				<div class="col-md-6">
+					<input type="checkbox" id="yes">
+					<label for="yes">yes</label>
+					<input type="checkbox" id="no">
+					<label for="no">no</label>
+					<input type="checkbox" id="maybe">
+					<label for="maybe">maybe</label>
+				</div>
+
+			</div>
+			<div class="row">
+				<div class="col-md-6">
+					<label for="didtheymove">Did they move?</label>
+				</div>
+				<div class="col-md-6">
+					<label for="penalty">Penalty</label>
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-md-6">
+					<input type="checkbox" id="yes">
+					<label for="yes">yes</label>
+					<input type="checkbox" id="no">
+					<label for="no">no</label>
+					<input type="checkbox" id="crossedbaseline">
+					<label for="crossedbaseline">crossed base line</label>
+				</div>
+				<div class="col-md-6">
+					<input type="checkbox" id="yes">
+					<label for="yes">yes</label>
+					<input type="checkbox" id="no">
+					<label for="no">no</label>
+				</div>
+			
+			</div>
 	</div>
-	<div id ="tele-op" class="tab-pane fade">
-	
-        <div class ="row">
-			<div class = "col-md-6">
-				Fuel
+	<div id ="tele-op" role="tabpanel" class="tab-pane ">
+			<div class ="row">
+				<div class = "col-md-6">
+					Fuel
+				</div>
+
+				<div class = "col-md-6">
+					Gears
+				</div>
+
 			</div>
 
-			<div class = "col-md-6">
-            Gears
+			<div class ="row">
+
+				<label>
+					Low
+				</label>
+
+				<button id = "Low-1" onclick="minus1(this)">
+					-1
+				</button>
+
+				<button id = "Low+1" onclick="plus1(this)">
+					+1
+				</button>
+
+				<button id = "Low+5" onclick = "plus5(this)">
+					+5
+				</button>
+
 			</div>
 
-		</div>
+			<div class ="row">
+				<label>
+					Pick up from floor
+				</label>
 
-		<div class ="row">
-		
-		<label>
-		Low
-		</label>
+				<input id = "FloorPickUpYES" type = "checkbox">
+				yes
+				</input>
 
-		<button id = "Low-1" onclick="minus1(this)">
-			-1
-		</button>
+				<input id = "FloorPickUpNO" type = "checkbox">
+				no
+				</input>
 
-		<button id = "Low+1" onclick="plus1(this)">
-			+1
-		</button>
-
-		<button id = "Low+5" onclick = "plus5(this)">
-			+5
-		</button>
-
-		</div>
-
-		<div class ="row">
-		<label>
-		Pick up from floor
-		</label>
-
-		<input id = "FloorPickUpYES" type = "checkbox">
-		yes
-		</input>
-
-		<input id = "FloorPickUpNO" type = "checkbox">
-		no
-		</input>
-
-		</div>
-
-		<div class ="row">
-		<label>
-		Pick up from human station
-		</label>
-
-		<input id = "HumanStationPickUpYES" type = "checkbox">
-		yes
-		</input>
-
-		<input id = "HumanStationPickUpNO" type = "checkbox">
-		no
-		</input>
-		</div>
-
-		<div class ="row">
-		<label>
-		Dropped gear
-		</label>
-
-		<button id = "DroppedGear+1" onclick = "plus1(this)">
-        	+1
-		</div>
-		<button id = "DroppedGear-1" onclick = "minus1(this)">
-			-1
-		</button>
-
-		<div class ="row">
-			<div class = "col-md-6">
-				Penalties
 			</div>
 
-			<button id = "Penalties+1" onclick = "plus1(this)">
-			+1
+			<div class ="row">
+				<label>
+					Pick up from human station
+				</label>
+
+				<input id = "HumanStationPickUpYES" type = "checkbox">
+				yes
+				</input>
+
+				<input id = "HumanStationPickUpNO" type = "checkbox">
+				no
+				</input>
+			</div>
+
+			<div class ="row">
+				<label>
+					Dropped gear
+				</label>
+
+				<button id = "DroppedGear+1" onclick = "plus1(this)">
+					+1
+			</div>
+			<button id = "DroppedGear-1" onclick = "minus1(this)">
+				-1
 			</button>
 
-			<button id = "Penalties-1" onclick = "minus1(this)">
-			-1
-			</button>
-		</div>
+			<div class ="row">
+				<div class = "col-md-6">
+					Penalties
+				</div>
 
-		<div class ="row">
-		content
+				<button id = "Penalties+1" onclick = "plus1(this)">
+					+1
+				</button>
+
+				<button id = "Penalties-1" onclick = "minus1(this)">
+					-1
+				</button>
+			</div>
+
 			
 		</div>
 
+
+	<div id="comment" role="tabpanel" class="tab-pane ">
+		<textarea rows="4" cols="50" id="comments">Comments</textarea>
+		<input type="button" id="save" value ="Save">
 	</div>
-	<div id="comment" class="tab-pane fade">
-		content
 	</div>
-</div>
-</div>
 </form>
 </body>
 
