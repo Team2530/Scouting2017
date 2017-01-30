@@ -16,7 +16,9 @@ $(document).ready(function () {
     });
 
     $('#teamname').on('blur', function () {
-        updateTeamName(selectPK(matchNumer,scoutname,team,"general"));
+        selectPK(matchNumer,scoutname,team,"general");
+        item = getPk();
+        updateTeamName(item.rows[0].id);
     });
 
 });

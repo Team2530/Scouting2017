@@ -103,7 +103,7 @@ function insertGeneral(scoutname, matchnum, teamnum) {
 
 //This function is to update a key value pair in the specified table
 function updateTable(table, key, value,  id) {
-    var updateStatement = "UPDATE "+ table+" SET " + key + " = " + value+ " WHERE rowid = " + id;
+    var updateStatement = "UPDATE "+ table+" SET " + key + " = " + value+ " WHERE id = " + id;
     database.transaction(function (tx) {
         tx.executeSql(updateStatement);
     });
@@ -132,16 +132,21 @@ function updateMatchNum(id) {
     updateTable("tele_op", "match_num", num, id);
     updateTable("comments", "match_num",num, id);
 }
-
+var pk = -1;
 function selectPK(match, scout, team, table) {
-    var select = "SELECT rowid from " + table+ " where match_num = " +match + " and  scout_name = '" +scout +
-            "' and team_num = " + team;
-    var pk =-1;
+    var select = "SELECT id from " + table+ " where match_num = '" +match + "' and  scout_name = '" +scout +
+            "' and team_num = '" + team + "'";
+
     database.transaction(function (tx) {
-        tx.executeSql(select, [], function (tx, results) {
-            console.log(results.rows.length);
-            pk = results.rows.item(0);
+         tx.executeSql(select, [], function (tx, results) {
+             setPk(results);
         });
     });
+}
+
+function setPk(a) {
+    pk=a;
+}
+function getPk() {
     return pk;
 }
