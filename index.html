@@ -6,7 +6,38 @@
 <link href="css/bootstrap.min.css" rel="stylesheet">
 <script src="js/jquery-3.1.1.min.js"></script>
 <script src="js/bootstrap.min.js"></script>
-    <link src="css/main.css" rel="stylesheet">
+<link src="css/main.css" rel="stylesheet">
+<style>
+body {
+    background-color:#4CAF50;
+}
+ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background-color: #333;
+}
+
+li {
+    float: left;
+}
+
+li a {
+    display: block;
+    color: white;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+}
+
+a:hover:not(.active) {
+    background-color:#4CAF50;
+}
+.active {
+background-color:#4CAF50;
+}
+</style>
 </head>
 
 <body>
@@ -44,44 +75,43 @@
 					<input type="text" id="matchnumber" class="form-control">
 				</div>
 				<div class="row">
-					    <label>Event: </label>
+						<label>Event: </label>
 					<!---<input type="checkbox" id="event">-->
+
 						<input type="checkbox" id="weekzero">
 						<label for="weekzero">Week Zero</label>
+
 						<input type="checkbox" id="iowa">
 						<label for="iowa">Iowa</label>
+
 						<input type="checkbox" id="lax">
 						<label for="lax">LAX</label>
+
 						<input type="checkbox" id="champ">
 						<label for="champ">Champ</label>
+
 				</div>
 				<div class="row">
-					<label >Did the robot play?</label>
-					<input type="checkbox" id="yes">
-					<label for="yes">yes</label>
-					<input type="checkbox" id="no">
-					<label for="no">no</label>
+					<label for="didtherobotplay">Did the robot play?</label>
+					<input type="checkbox" id="didtherobotplay">
+					<label for="didtherobotplay">Check for yes, blank for no</label>
 				</div>
 				<div class="row">
 					<label for="currentrobotranking">Current robot ranking:</label>
 					<input type="text" id="currentrobotranking" class="form-control">
 				</div>
 			</div>
-			
 		</div>
-<!-- -->
 	</div>
 	<div id="autonomous" role="tabpanel" class="tab-pane">
+		<h4>
 		<div class="col-md-6">
 			<label for="fuelcollection">Fuel Collection</label>
-			<div id="fuelcollection">
-			</div>
 		</div>
 			<div class="col-md-6">
 				<label for="geardelivery">Gear Delivery</label>
-				<div id="geardelivery">
-				</div>
 			</div>
+		</h4>
 			<div class="row">
 				<div class="col-md-6">
 					<label for="high+">High</label>
@@ -109,6 +139,7 @@
 				</div>
 
 			</div>
+			<h4>
 			<div class="row">
 				<div class="col-md-6">
 					<label for="didtheymove">Did they move?</label>
@@ -117,6 +148,7 @@
 					<label for="penalty">Penalty</label>
 				</div>
 			</div>
+			</h4>
 			<div class="row">
 				<div class="col-md-6">
 					<input type="checkbox" id="yes">
@@ -132,106 +164,126 @@
 					<input type="checkbox" id="no">
 					<label for="no">no</label>
 				</div>
-			
 			</div>
 	</div>
 	<div id ="tele-op" role="tabpanel" class="tab-pane ">
-			<div class ="row">
-				<div class = "col-md-6">
-					Fuel
-				</div>
-
-				<div class = "col-md-6">
-					Gears
-				</div>
+			<h4>
+			<div class="col-md-6">
+				<label for="Fuel">Fuel</label>
+			</div>
+			<div class="col-md-6">
+				<label for="Gears">Gears</label>
+			</div>
+			</h4>
+		<div class="row">
+			<div class="col-md-6">
+				<label for="Low">Low</label>
+				<input type="button" value="-1" id=" low-" onclick="minusOne()">
+				<input type="button" value="+1" id="low+" onclick="plusOne()">
+				<input type="button" value="+5" id="low+5" onclick="plusFive()">
+				<label for="count">Count:</label>
 
 			</div>
-
-			<div class ="row">
-
-				<label>
-					Low
-				</label>
-
-				<button id = "Low-1" onclick="minus1(this)">
-					-1
-				</button>
-
-				<button id = "Low+1" onclick="plus1(this)">
-					+1
-				</button>
-
-				<button id = "Low+5" onclick = "plus5(this)">
-					+5
-				</button>
+			<div class="col-md-6">
+				<label for="Delivered">Delivered</label>
+				<input type="button" value="+1" id="gears+1" onclick="plusOne()">
+				<input type="button" value="-1" id="gears-1" onclick="minusOne()">
+				<label for="count">Count:</label>
 
 			</div>
-
-			<div class ="row">
-				<label>
-					Pick up from floor
-				</label>
-
-				<input id = "FloorPickUpYES" type = "checkbox">
-				yes
-				</input>
-
-				<input id = "FloorPickUpNO" type = "checkbox">
-				no
-				</input>
-
-			</div>
-
-			<div class ="row">
-				<label>
-					Pick up from human station
-				</label>
-
-				<input id = "HumanStationPickUpYES" type = "checkbox">
-				yes
-				</input>
-
-				<input id = "HumanStationPickUpNO" type = "checkbox">
-				no
-				</input>
-			</div>
-
-			<div class ="row">
-				<label>
-					Dropped gear
-				</label>
-
-				<button id = "DroppedGear+1" onclick = "plus1(this)">
-					+1
-			</div>
-			<button id = "DroppedGear-1" onclick = "minus1(this)">
-				-1
-			</button>
-
-			<div class ="row">
-				<div class = "col-md-6">
-					Penalties
-				</div>
-
-				<button id = "Penalties+1" onclick = "plus1(this)">
-					+1
-				</button>
-
-				<button id = "Penalties-1" onclick = "minus1(this)">
-					-1
-				</button>
-			</div>
-
-			
 		</div>
+		<div class="row">
+			<div class="col-md-6">
+				<label for="High">High</label>
+				<input type="button" value="-1" id="high-" onclick="minusOne()">
+				<input type="button" value="+1" id="high+" onclick="plusOne()">
+				<input type="button" value="+5" id="high+5" onclick="plusFive()">
+				<label for="count">Count:</label>
+				
+			</div>
+			<div class="col-md-6">
+				<label for="Pickupfromfloor">Pick up from floor</label>
+				<input type="checkbox" id="yes">
+				<label for="yes">yes</label>
+				<input type="checkbox" id="no">
+				<label for="no">no</label>
+			</div>
+		</div>
+		<div class="row">
+			<div class="col-md-6">
+				<label for="FloorCollector">Floor Collector</label>
+				<input type="checkbox" id="yes">
+				<label for="yes">yes</label>
+				<input type="checkbox" id="no">
+				<label for="no">no</label>
+			</div>
+			<div class="col-md-6">
+				<label for="Pickupfromhumanstation">Pick up from human station</label>
+				<input type="checkbox" id="yes">
+				<label for="yes">yes</label>
+				<input type="checkbox" id="no">
+				<label for="no">no</label>
+			</div>
+		</div>
+		<div class="row">
+			<div class="col-md-6">
+				<label for="hoppercollector">Hopper Collector</label>
+				<input type="checkbox" id="yes">
+				<label for="yes">yes</label>
+				<input type="checkbox" id="no">
+				<label for="no">no</label>
+			</div>
+			<div class="col-md-6">
+				<label for="droppedgear">Dropped gear</label>
+				<input type="button" value="-1" id="gears-1" onclick="minusOne()">
+				<input type="button" value="+1" id="gears+1" onclick="plusOne()">
+				<label for="count">Count:</label>
 
+			</div>
+		</div>
+		<div class="row">
+			<div class="col-md-6">
+				<label for="humanloader">Human Loader</label>
+				<input type="checkbox" id="yes">
+				<label for="yes">yes</label>
+				<input type="checkbox" id="no">
+				<label for="no">no</label>
+			</div>
+		</div>
+		<h4>
+		<div class="row">
+			<div class="col-md-6">
+				<label for="Rope">Rope</label>
+			</div>
+			<div class="col-md-6">
+				<label for="Penalties">Penalties</label>
+			</div>
+		</div>
+		</h4>
+		<div class="row">
+			<div class="col-md-6">
+				<label for="Climb">Climb</label>
+				<input type="checkbox" id="yes">
+				<label for="yes">yes</label>
+				<input type="checkbox" id="no">
+				<label for="no">no</label>
+				<input type="checkbox" id="attempted">
+				<label for="attempted">attempted</label>
+			</div>
+			<div class="col-md-6">
+				<input type="button" value="+1" id="penalties+1" onclick="plusOne()">
+				<input type="button" value="-1" id="penalties-1" onclick="minusOne()">
+				<label for="count">Count:</label>
 
+			</div>
+		</div>
+	</div>
 	<div id="comment" role="tabpanel" class="tab-pane ">
-		<textarea rows="4" cols="50" id="comments">Comments</textarea>
-		<input type="button" id="save" value ="Save">
+		<textarea rows="4" cols="50" id="comments"></textarea>
+		<input type="button" value ="Save" id="save">
 	</div>
-	</div>
+</div>
+</div>
 </form>
 </body>
-
 </html>
