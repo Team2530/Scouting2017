@@ -14,12 +14,8 @@ $(document).ready(function () {
         $('#newmatch-modal').modal('hide');
         insertGeneral( scoutname,matchNumer, team);
     });
-
-    $('#teamname').on('blur', function () {
-        selectPK(matchNumer,scoutname,team,"general");
-        item = getPk();
-        updateTeamName(item.rows[0].id);
-    });
-
+    $('#saveGeneral').on('click',function () {
+        saveGeneral();
+    })
 });
 

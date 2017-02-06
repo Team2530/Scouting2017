@@ -11,21 +11,21 @@ $(document).ready(function () {
 	});
 	$("#highMinus").on("click",function () {
 		highMisses+=1;
-		console.log(highMisses);
+
 		$("#highMisses").html(function (i, val) {
 			return val*1+1;
 		});
 	});
 	$("#lowPlus").on("click",function () {
 		lowHits+=1;
-		console.log(lowHits);
+
 		$("#lowHits").html(function (i, val) {
 			return val*1+1;
 		});
 	});
 	$("#lowMinus").on("click",function(){
 		lowMisses+=1;
-		console.log(lowMisses);
+
 		$("#lowMisses").html(function (i, val) {
 			return val*1+1;
 		});

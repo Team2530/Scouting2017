@@ -132,6 +132,7 @@ function updateMatchNum(id) {
     updateTable("tele_op", "match_num", num, id);
     updateTable("comments", "match_num",num, id);
 }
+
 var pk = -1;
 function selectPK(match, scout, team, table) {
     var select = "SELECT id from " + table+ " where match_num = '" +match + "' and  scout_name = '" +scout +
@@ -139,7 +140,7 @@ function selectPK(match, scout, team, table) {
 
     database.transaction(function (tx) {
          tx.executeSql(select, [], function (tx, results) {
-             setPk(results);
+             setPk(results.rows[0].id);
         });
     });
 }
@@ -149,4 +150,26 @@ function setPk(a) {
 }
 function getPk() {
     return pk;
+
+}
+
+function saveGeneral() {
+
+    var teamNum = $('#teamnumber').val();
+    var teamName = $('#teamname').val();
+    var scoutName = $('#scoutname').val();
+    var matchNum = $('#matchnumber').val();
+    var event = $('#event').val();
+    console.log(event);
+    var robotPlay = $('#robotPlay').val();
+    var robotRank = $('#currentrobotranking').val();
+    selectPK(matchNum, scoutName, teamNum, 'general');
+    var id = getPk();
+    updateTable('general', 'team_num', teamNum, id);
+    updateTable('general', 'team_name', teamName, id);
+    updateTable('general', 'scout_name', scoutName, id);
+    updateTable('general', 'match_num', matchNum, id);
+    updateTable('general', 'event', event, id);
+    updateTable('general', 'robot_play', robotPlay, id);
+    updateTable('general', 'cur_robo_rank', robotRank, id);
 }
