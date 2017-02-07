@@ -6,6 +6,9 @@
 <link href="css/bootstrap.min.css" rel="stylesheet">
 <script src="js/jquery-3.1.1.min.js"></script>
 <script src="js/bootstrap.min.js"></script>
+<script src="js/main2.js"></script>
+<script src="js/controller.js"></script>
+<script src="js/database.js"></script>
 <link src="css/main.css" rel="stylesheet">
 <style>
 body {
@@ -54,11 +57,12 @@ background-color:#4CAF50;
 		<div class="row">
 			<div class="col-md-6">
 				<label for="teamname">Team name</label>
-				<input type="text" id="teamname" class ="form-control">
+				<input type="text" id="teamname" class ="form-control" placeholder="Inconceivable"
+				type="text" maxlength="30">
 			</div>
 			<div class="col-md-6">
 				<label for="teamnumber">Team number</label>
-				<input type="text" id="teamnumber" class="form-control">
+				<input type="text" id="teamnumber" class="form-control" placeholder="2530" type="text" maxlength="4">
 			</div>
 		</div>
 		<div class="row">
@@ -69,32 +73,26 @@ background-color:#4CAF50;
 			</div>
 			<div class="col-md-6">
 				<label for="scoutname">Scout name</label>
-				<input type="text" id="scoutname" class="form-control">
+				<input type="text" id="scoutname" class="form-control" placeholder="Caleb" type="text" maxlength="10">
 				<div class="row">
 					<label for= "matchnumber">Match number</label>
-					<input type="text" id="matchnumber" class="form-control">
+					<input type="text" id="matchnumber" class="form-control" placeholder="1" type="text" maxlength="3">
 				</div>
 				<div class="row">
-						<label>Event: </label>
-					<!---<input type="checkbox" id="event">-->
-
-						<input type="checkbox" id="weekzero">
-						<label for="weekzero">Week Zero</label>
-
-						<input type="checkbox" id="iowa">
-						<label for="iowa">Iowa</label>
-
-						<input type="checkbox" id="lax">
-						<label for="lax">LAX</label>
-
-						<input type="checkbox" id="champ">
-						<label for="champ">Champ</label>
-
+						<label for="event">Event: </label>
+						<select id="event">
+						<option value="Week Zero">Week Zero</option>
+						<option value="Iowa">Iowa</option>'
+						<option value="La Crosse">La Crosse</option>
+						<option value="Championship">Championship</option>
+						</select>
 				</div>
 				<div class="row">
-					<label for="didtherobotplay">Did the robot play?</label>
-					<input type="checkbox" id="didtherobotplay">
-					<label for="didtherobotplay">Check for yes, blank for no</label>
+					<label for="robotPlay">Did the robot play?</label>
+					<select id="robotPlay">
+					<option value="Yes">Yes</option>
+					<option value="No">No</option>
+					</select>
 				</div>
 				<div class="row">
 					<label for="currentrobotranking">Current robot ranking:</label>
@@ -102,7 +100,10 @@ background-color:#4CAF50;
 				</div>
 			</div>
 		</div>
-	</div>
+		<div class="row">
+       	<input type="button" value="Save" id="saveGeneral">
+     	</div>
+ 	</div>
 	<div id="autonomous" role="tabpanel" class="tab-pane">
 		<h4>
 		<div class="col-md-6">
@@ -114,21 +115,25 @@ background-color:#4CAF50;
 		</h4>
 			<div class="row">
 				<div class="col-md-6">
-					<label for="high+">High</label>
-
-					<input type="button" value="+" id="high+"onclick="addOne()">
-					
-					<label for="high-"></label>
-					<input type="button" value ="-" id="high-" onclick="minusOne()">
+					<label for="highPlus">High</label>
+		        	<input type="button" value="+" id="highPlus">
+ 			        <span id="highHits"></span>
+		            <label for="highMinus"></label>
+			        <input type="button" value ="-" id="highMinus">
+			        <span id="highMisses"></span>
 					<label for="score">Score:</label>
 					<div id="score">
+					<span id="score"></span>
 					</div>
-					<label for="low+">Low</label>
-					<input type="button" value = "+" id="low+" onclick="addOne()">
-					<label for="low-"></label>
-					<input type="button" value="-" id="low-" onclick="minusOne()">
+					<label for="lowPlus">Low</label>
+ 					<input type="button" value = "+" id="lowPlus">
+					<span id="lowHits"></span>
+					<label for="lowMinus"></label>
+					<input type="button" value="-" id="lowMinus">
+					<span id="lowMisses"></span>
 					<label for="score">Score:</label>
-				</div>
+					<span id="score"></span>
+ 				    </div>
 				<div class="col-md-6">
 					<input type="checkbox" id="yes">
 					<label for="yes">yes</label>
@@ -279,7 +284,7 @@ background-color:#4CAF50;
 		</div>
 	</div>
 	<div id="comment" role="tabpanel" class="tab-pane ">
-		<textarea rows="4" cols="50" id="comments"></textarea>
+		<textarea rows="4" cols="50" placeholder="Comments" maxlength="500" type="text"></textarea>
 		<input type="button" value ="Save" id="save">
 	</div>
 </div>
