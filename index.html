@@ -9,38 +9,8 @@
 <script src="js/main2.js"></script>
 <script src="js/controller.js"></script>
 <script src="js/database.js"></script>
-<link src="css/main.css" rel="stylesheet">
-<style>
-body {
-    background-color:#4CAF50;
-}
-ul {
-    list-style-type: none;
-    margin: 0;
-    padding: 0;
-    overflow: hidden;
-    background-color: #333;
-}
+<link href="css/main.css" rel="stylesheet">
 
-li {
-    float: left;
-}
-
-li a {
-    display: block;
-    color: white;
-    text-align: center;
-    padding: 14px 16px;
-    text-decoration: none;
-}
-
-a:hover:not(.active) {
-    background-color:#4CAF50;
-}
-.active {
-background-color:#4CAF50;
-}
-</style>
 </head>
 
 <body>
@@ -71,128 +41,137 @@ background-color:#4CAF50;
 				</div>
 				<label for="robotpicture">Robot Picture</label>
 			</div>
-			<div class="col-md-6">
+			<div class="col-md-3">
 				<label for="scoutname">Scout name</label>
 				<input type="text" id="scoutname" class="form-control" placeholder="Caleb" type="text" maxlength="10">
-				<div class="row">
+			</div>
+			<div class="col-md-3">
 					<label for= "matchnumber">Match number</label>
 					<input type="text" id="matchnumber" class="form-control" placeholder="1" type="text" maxlength="3">
-				</div>
-				<div class="row">
-						<label for="event">Event: </label>
-						<select id="event">
-						<option value="Week Zero">Week Zero</option>
-						<option value="Iowa">Iowa</option>'
-						<option value="La Crosse">La Crosse</option>
-						<option value="Championship">Championship</option>
-						</select>
-				</div>
-				<div class="row">
-					<label for="robotPlay">Did the robot play?</label>
-					<select id="robotPlay">
-					<option value="Yes">Yes</option>
-					<option value="No">No</option>
-					</select>
-				</div>
-				<div class="row">
-					<label for="currentrobotranking">Current robot ranking:</label>
-					<input type="text" id="currentrobotranking" class="form-control">
-				</div>
 			</div>
 		</div>
 		<div class="row">
-       	<input type="button" value="Save" id="saveGeneral">
-     	</div>
- 	</div>
-	<div id="autonomous" role="tabpanel" class="tab-pane">
-		<h4>
-		<div class="col-md-6">
-			<label for="fuelcollection">Fuel Collection</label>
-		</div>
-			<div class="col-md-6">
-				<label for="geardelivery">Gear Delivery</label>
+			<div class="col-md-12">
+				<label for="event">Event:</label>
+				<select id="event">
+				<option value="Week Zero">Week Zero</option>
+				<option value="Iowa">Iowa</option>
+				<option value="La Crosse">La Crosse</option>
+				<option value="Championship">Championship</option>
+				</select>
 			</div>
-		</h4>
+		</div>
+		<div class="row">
+			<div class="col-md-12">
+
+			</div>
+		</div>
+		<div class="row">
+			<div class="col-md-6">
+				<label for="robotPlay">Did the robot play?</label>
+				<select id="robotPlay">
+				<option value="Yes">Yes</option>
+				<option value="No">No</option>
+				</select>
+			</div>
+			<div class="col-md-6">
+				<label for="currentrobotranking">Current robot ranking:</label>
+				<input type="text" id="currentrobotranking" class="form-control" placeholder="2" maxlength="5">
+			</div>
+		</div>
+		<div class="row">
+       		<input type="button" class="btn btn-primary" value="Save" id="saveGeneral">
+     	</div>
+	</div>
+	<div id="autonomous" role="tabpanel" class="tab-pane">
+		<div class="row">
+			<div class="col-md-6">
+				<h4>Fuel Collection</h4>
+			</div>
+			<div class="col-md-6">
+				<h4>Gear Delivery</h4>
+			</div>
+		</div>
 			<div class="row">
 				<div class="col-md-6">
 					<label for="highPlus">High</label>
-		        	<input type="button" value="+" id="highPlus">
+		        	<input type="button" class="btn btn-default" value="+" id="highPlus">
  			        <span id="highHits"></span>
 		            <label for="highMinus"></label>
-			        <input type="button" value ="-" id="highMinus">
+			        <input type="button" class="btn btn-default" value ="-" id="highMinus">
 			        <span id="highMisses"></span>
 					<label for="score">Score:</label>
 					<div id="score">
 					<span id="score"></span>
 					</div>
 					<label for="lowPlus">Low</label>
- 					<input type="button" value = "+" id="lowPlus">
+ 					<input type="button" class="btn btn-default" value = "+" id="lowPlus">
 					<span id="lowHits"></span>
 					<label for="lowMinus"></label>
-					<input type="button" value="-" id="lowMinus">
+					<input type="button" class="btn btn-default" value="-" id="lowMinus">
 					<span id="lowMisses"></span>
 					<label for="score">Score:</label>
 					<span id="score"></span>
  				    </div>
 				<div class="col-md-6">
-					<input type="checkbox" id="yes">
-					<label for="yes">yes</label>
-					<input type="checkbox" id="no">
-					<label for="no">no</label>
-					<input type="checkbox" id="maybe">
-					<label for="maybe">maybe</label>
+					<select id="geardelivery">
+					<option value="Yes">Yes</option>
+					<option value="No">No</option>
+					<option value="Maybe">Maybe</option>
+					</select>
 				</div>
 
 			</div>
-			<h4>
 			<div class="row">
 				<div class="col-md-6">
-					<label for="didtheymove">Did they move?</label>
+					<h4>Did they move?</h4>
 				</div>
 				<div class="col-md-6">
-					<label for="penalty">Penalty</label>
+					<h4>Penalty</h4>
 				</div>
 			</div>
 			</h4>
 			<div class="row">
 				<div class="col-md-6">
-					<input type="checkbox" id="yes">
-					<label for="yes">yes</label>
-					<input type="checkbox" id="no">
-					<label for="no">no</label>
-					<input type="checkbox" id="crossedbaseline">
-					<label for="crossedbaseline">crossed base line</label>
+					<select id="didtheymove">
+					<option value="Yes">Yes</option>
+					<option value="No">No</option>
+					<option value="Maybe">Crossed base line</option>
+					</select>
 				</div>
 				<div class="col-md-6">
-					<input type="checkbox" id="yes">
-					<label for="yes">yes</label>
-					<input type="checkbox" id="no">
-					<label for="no">no</label>
+					<select id="penalty">
+					<option value="Yes">Yes</option>
+					<option value="No">No</option>
+					</select>
 				</div>
 			</div>
+			<div class="row">
+       		<input type="button" class="btn btn-primary" value="Save" id="saveGeneral">
+     	</div>
 	</div>
-	<div id ="tele-op" role="tabpanel" class="tab-pane ">
-			<h4>
+	<div id ="tele-op" role="tabpanel" class="tab-pane">
+		<div class="row">
 			<div class="col-md-6">
-				<label for="Fuel">Fuel</label>
+				<h4>Fuel</h4>
 			</div>
 			<div class="col-md-6">
-				<label for="Gears">Gears</label>
+				<h4>Gears</h4>
 			</div>
-			</h4>
+		</div>
 		<div class="row">
 			<div class="col-md-6">
 				<label for="Low">Low</label>
-				<input type="button" value="-1" id=" low-" onclick="minusOne()">
-				<input type="button" value="+1" id="low+" onclick="plusOne()">
-				<input type="button" value="+5" id="low+5" onclick="plusFive()">
+				<input type="button" class="btn btn-default" value="-1" id=" low-" onclick="minusOne()">
+				<input type="button" class="btn btn-default" value="+1" id="low+" onclick="plusOne()">
+				<input type="button" class="btn btn-default" value="+5" id="low+5" onclick="plusFive()">
 				<label for="count">Count:</label>
 
 			</div>
 			<div class="col-md-6">
 				<label for="Delivered">Delivered</label>
-				<input type="button" value="+1" id="gears+1" onclick="plusOne()">
-				<input type="button" value="-1" id="gears-1" onclick="minusOne()">
+				<input type="button" class="btn btn-default" value="+1" id="gears+1" onclick="plusOne()">
+				<input type="button" class="btn btn-default" value="-1" id="gears-1" onclick="minusOne()">
 				<label for="count">Count:</label>
 
 			</div>
@@ -200,92 +179,92 @@ background-color:#4CAF50;
 		<div class="row">
 			<div class="col-md-6">
 				<label for="High">High</label>
-				<input type="button" value="-1" id="high-" onclick="minusOne()">
-				<input type="button" value="+1" id="high+" onclick="plusOne()">
-				<input type="button" value="+5" id="high+5" onclick="plusFive()">
+				<input type="button" class="btn btn-default" value="-1" id="high-" onclick="minusOne()">
+				<input type="button" class="btn btn-default" value="+1" id="high+" onclick="plusOne()">
+				<input type="button" class="btn btn-default" value="+5" id="high+5" onclick="plusFive()">
 				<label for="count">Count:</label>
 				
 			</div>
 			<div class="col-md-6">
-				<label for="Pickupfromfloor">Pick up from floor</label>
-				<input type="checkbox" id="yes">
-				<label for="yes">yes</label>
-				<input type="checkbox" id="no">
-				<label for="no">no</label>
+				<label for="pickupfromfloor">Pickup from floor?</label>
+				<select id="pickupfromfloor">
+				<option value="Yes">Yes</option>
+				<option value="No">No</option>
+				</select>
 			</div>
 		</div>
 		<div class="row">
 			<div class="col-md-6">
-				<label for="FloorCollector">Floor Collector</label>
-				<input type="checkbox" id="yes">
-				<label for="yes">yes</label>
-				<input type="checkbox" id="no">
-				<label for="no">no</label>
+				<label for="floorcollector">Floor Collector?</label>
+				<select id="floorcollector">
+				<option value="Yes">Yes</option>
+				<option value="No">No</option>
+				</select>
 			</div>
 			<div class="col-md-6">
-				<label for="Pickupfromhumanstation">Pick up from human station</label>
-				<input type="checkbox" id="yes">
-				<label for="yes">yes</label>
-				<input type="checkbox" id="no">
-				<label for="no">no</label>
+				<label for="pickupfromhumanstation">Pick up from human station?</label>
+				<select id="pickupfromhumanstation">
+				<option value="Yes">Yes</option>
+				<option value="No">No</option>
+				</select>
 			</div>
 		</div>
 		<div class="row">
 			<div class="col-md-6">
-				<label for="hoppercollector">Hopper Collector</label>
-				<input type="checkbox" id="yes">
-				<label for="yes">yes</label>
-				<input type="checkbox" id="no">
-				<label for="no">no</label>
+				<label for="hoppercollector">Hopper Collector?</label>
+				<select id="hoppercollector">
+				<option value="Yes">Yes</option>
+				<option value="No">No</option>
+				</select>
 			</div>
 			<div class="col-md-6">
 				<label for="droppedgear">Dropped gear</label>
-				<input type="button" value="-1" id="gears-1" onclick="minusOne()">
-				<input type="button" value="+1" id="gears+1" onclick="plusOne()">
+				<input type="button" class="btn btn-default" value="-1" id="gears-1" onclick="minusOne()">
+				<input type="button" class="btn btn-default" value="+1" id="gears+1" onclick="plusOne()">
 				<label for="count">Count:</label>
 
 			</div>
 		</div>
 		<div class="row">
 			<div class="col-md-6">
-				<label for="humanloader">Human Loader</label>
-				<input type="checkbox" id="yes">
-				<label for="yes">yes</label>
-				<input type="checkbox" id="no">
-				<label for="no">no</label>
+				<label for="humanloader">Human Loader?</label>
+				<select id="humanloader">
+				<option value="Yes">Yes</option>
+				<option value="No">No</option>
+				</select>
 			</div>
 		</div>
-		<h4>
 		<div class="row">
 			<div class="col-md-6">
-				<label for="Rope">Rope</label>
+				<h4>Rope</h4>
 			</div>
 			<div class="col-md-6">
-				<label for="Penalties">Penalties</label>
+				<h4>Penalties</h4>
 			</div>
 		</div>
-		</h4>
 		<div class="row">
 			<div class="col-md-6">
-				<label for="Climb">Climb</label>
-				<input type="checkbox" id="yes">
-				<label for="yes">yes</label>
-				<input type="checkbox" id="no">
-				<label for="no">no</label>
-				<input type="checkbox" id="attempted">
-				<label for="attempted">attempted</label>
+				<label for="climb">Climb:</label>
+				<select id="climb">
+				<option value="Yes">Yes</option>
+				<option value="No">No</option>
+				<option value="Attempted">Attempted</option>
+				</select>
 			</div>
 			<div class="col-md-6">
-				<input type="button" value="+1" id="penalties+1" onclick="plusOne()">
-				<input type="button" value="-1" id="penalties-1" onclick="minusOne()">
+				<input type="button" class="btn btn-default" value="+1" id="penalties+1" onclick="plusOne()">
+				<input type="button" class="btn btn-default" value="-1" id="penalties-1" onclick="minusOne()">
 				<label for="count">Count:</label>
 
 			</div>
 		</div>
+		<div class="row">
+       		<input type="button" class="btn btn-primary" value="Save" id="saveGeneral">
+     	</div>
 	</div>
 	<div id="comment" role="tabpanel" class="tab-pane ">
-		<textarea rows="4" cols="50" placeholder="Comments" maxlength="500" type="text"></textarea>
-		<input type="button" value ="Save" id="save">
+		<textarea rows="6" cols="77" placeholder="Comments" maxlength="500" type="text"></textarea>
+		<input type="button" class="btn btn-primary" value="Save" id="saveGeneral">
 	</div>
 </div>
 </div>
