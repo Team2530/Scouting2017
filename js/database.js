@@ -9,8 +9,6 @@ var database = openDatabase(databseOptions.fileName,
     databseOptions.version, databseOptions.displayName, databseOptions.maxSize);
 
 
-var insertAutoStatement = "INSERT INTO general (team_num,  match_num,  " +
-    "high_score, low_score, gear_del, move, penalty, cross_bl) VALUES (?,?,?,?,?,?,?,?)";
 
 var insertTeleopStatement = "INSERT INTO general (team_num,  match_num,  " +
     "high_score, low_score, floor_col, hopper_col, human_load, gears_del, pickup, pickup_hu, dropped_gear, rope," +
@@ -159,9 +157,8 @@ function saveGeneral() {
     var teamName = $('#teamname').val();
     var scoutName = $('#scoutname').val();
     var matchNum = $('#matchnumber').val();
-    var event = $('#event').val();
-    console.log(event);
-    var robotPlay = $('#robotPlay').val();
+    var event = $('#event option:selected').text();
+    var robotPlay = $('#robotPlay option:selected').text();
     var robotRank = $('#currentrobotranking').val();
     selectPK(matchNum, scoutName, teamNum, 'general');
     var id = getPk();
@@ -172,4 +169,15 @@ function saveGeneral() {
     updateTable('general', 'event', event, id);
     updateTable('general', 'robot_play', robotPlay, id);
     updateTable('general', 'cur_robo_rank', robotRank, id);
+}
+var insertAutoStatement = "INSERT INTO general (team_num,  match_num,  " +
+    "high_score, low_score, gear_del, move, penalty, cross_bl) VALUES (?,?,?,?,?,?,?,?)";
+
+function saveAuto() {
+    var teamNum=$('#teamnumber').val();
+    var matchNum = $('#matchnumber').val();
+    var highScore = $('#highHits').val();
+    var lowSore = $('#lowhits').val();
+    var gearDel = $('#geardelivery').val();
+
 }
