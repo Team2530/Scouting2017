@@ -74,8 +74,7 @@ function createCommentsTable() {
 }
 
 function insertGeneral(scoutname, matchnum, teamnum) {
-    var insertGeneralStatement = "INSERT INTO general (team_num, team_name, scout_name, match_num, event, " +
-        "robot_play, cur_robo_rank) VALUES (?,?,?,?,?,?,?)";
+
 
     var teamNum = teamnum;
     var teamName = "";
@@ -150,27 +149,21 @@ function getPk() {
     return pk;
 
 }
-
+var insertGeneralStatement = "INSERT INTO general (team_num, team_name, scout_name, match_num, event, " +
+    "robot_play, cur_robo_rank) VALUES (?,?,?,?,?,?,?)";
 function saveGeneral() {
 
-    var teamNum = $('#teamnumber').val();
     var teamName = $('#teamname').val();
-    var scoutName = $('#scoutname').val();
-    var matchNum = $('#matchnumber').val();
     var event = $('#event option:selected').text();
     var robotPlay = $('#robotPlay option:selected').text();
     var robotRank = $('#currentrobotranking').val();
-    selectPK(matchNum, scoutName, teamNum, 'general');
-    var id = getPk();
-    updateTable('general', 'team_num', teamNum, id);
-    updateTable('general', 'team_name', teamName, id);
-    updateTable('general', 'scout_name', scoutName, id);
-    updateTable('general', 'match_num', matchNum, id);
-    updateTable('general', 'event', event, id);
-    updateTable('general', 'robot_play', robotPlay, id);
-    updateTable('general', 'cur_robo_rank', robotRank, id);
+
+    database.transaction(function (tx) {
+        tx.executeSql(insertGeneralStatement, [team, teamName,scoutname,matchNumer,event, robotPlay,robotRank]);
+    })
+
 }
-var insertAutoStatement = "INSERT INTO general (team_num,  match_num,  " +
+var insertAutoStatement = "INSERT INTO auto (team_num,  match_num,  " +
     "high_score, low_score, gear_del, move, penalty, cross_bl) VALUES (?,?,?,?,?,?,?,?)";
 
 function saveAuto() {
@@ -179,5 +172,11 @@ function saveAuto() {
     var highScore = $('#highHits').val();
     var lowSore = $('#lowhits').val();
     var gearDel = $('#geardelivery').val();
+    var move;
+    var penalty;
+    var crossbl;
 
+    database.transaction(function (tx) {
+        tx.executeSql(insertAutoStatement, [teamNum, matchNum, highScore, lowSore, gearDel, move, penalty, crossbl] )
+    })
 }
