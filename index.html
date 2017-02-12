@@ -9,6 +9,11 @@
 <script src="js/main2.js"></script>
 <script src="js/controller.js"></script>
 <script src="js/database.js"></script>
+	<script src="js/autonomous.js"></script>
+	<script src="js/comments.js"></script>
+	<script src="js/team.js"></script>
+	<script src="js/teleop.js"></script>
+	<script src="js/general.js"></script>
 	<link href="css/main.css" rel="stylesheet">
 </head>
 
@@ -150,7 +155,7 @@
 			</div>
 			<div class="row">
 				<div class="col-md-12">
-       			<input type="button" class="btn btn-primary" value="Save" id="saveGeneral">
+       			<input type="button" class="btn btn-primary" value="Save" id="saveAuto">
        			</div>
      		</div>
 	</div>
@@ -264,16 +269,22 @@
 		</div>
 		<div class="row">
 			<div class="col-md-12">
-       		<input type="button" class="btn btn-primary" value="Save" id="saveGeneral">
+       		<input type="button" class="btn btn-primary" value="Save" id="saveTeleop">
      		</div>
      	</div>
 	</div>
 	<div id="comment" role="tabpanel" class="tab-pane ">
 		<textarea rows="6" cols="77" placeholder="Comments" maxlength="500" type="text"></textarea>
-		<input type="button" class="btn btn-primary" value="Save" id="saveGeneral">
+		<input type="button" class="btn btn-primary" value="Save" id="saveComments">
 	</div>
 </div>
 	<input id="new-match" type="button" value="New Match!" onclick="location.reload()">
 </form>
+<script type="application/javascript">
+	$(document).ready(function () {
+		$('#newmatch-modal').modal();
+	});
+
+</script>
 </body>
 </html>

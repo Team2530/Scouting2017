@@ -10,12 +10,9 @@ var database = openDatabase(databseOptions.fileName,
 
 
 
-var insertTeleopStatement = "INSERT INTO general (team_num,  match_num,  " +
-    "high_score, low_score, floor_col, hopper_col, human_load, gears_del, pickup, pickup_hu, dropped_gear, rope," +
-    " penalties) VALUES (?,?,?,?,?,?,?,?,?,?,?,?)";
 
-var insertCommentStatement = "INSERT INTO general (team_num,  match_num,  " +
-    "comments) VALUES (?,?,?)";
+
+
 
 function createGeneralTable() {
     var createGeneralStatement = "CREATE TABLE IF NOT EXISTS general (id INTEGER PRIMARY KEY AUTOINCREMENT," +
@@ -130,53 +127,25 @@ function updateMatchNum(id) {
     updateTable("comments", "match_num",num, id);
 }
 
-var pk = -1;
-function selectPK(match, scout, team, table) {
-    var select = "SELECT id from " + table+ " where match_num = '" +match + "' and  scout_name = '" +scout +
-            "' and team_num = '" + team + "'";
+var pk = null;
+
+function getMaxIndex(table) {
+    var selectStatement = "select MAX(id) from " + table;
 
     database.transaction(function (tx) {
-         tx.executeSql(select, [], function (tx, results) {
-             setPk(results.rows[0].id);
+        tx.executeSql(selectStatement, [],function (tx, results) {
+            var len = results.rows.length;
+            console.log(len);
+            if(len == 1){
+                pk = results.rows.item(0);
+            }
         });
     });
-}
-
-function setPk(a) {
-    pk=a;
-}
-function getPk() {
     return pk;
-
 }
-var insertGeneralStatement = "INSERT INTO general (team_num, team_name, scout_name, match_num, event, " +
-    "robot_play, cur_robo_rank) VALUES (?,?,?,?,?,?,?)";
-function saveGeneral() {
 
-    var teamName = $('#teamname').val();
-    var event = $('#event option:selected').text();
-    var robotPlay = $('#robotPlay option:selected').text();
-    var robotRank = $('#currentrobotranking').val();
 
-    database.transaction(function (tx) {
-        tx.executeSql(insertGeneralStatement, [team, teamName,scoutname,matchNumer,event, robotPlay,robotRank]);
-    })
 
-}
-var insertAutoStatement = "INSERT INTO auto (team_num,  match_num,  " +
-    "high_score, low_score, gear_del, move, penalty, cross_bl) VALUES (?,?,?,?,?,?,?,?)";
 
-function saveAuto() {
-    var teamNum=$('#teamnumber').val();
-    var matchNum = $('#matchnumber').val();
-    var highScore = $('#highHits').val();
-    var lowSore = $('#lowhits').val();
-    var gearDel = $('#geardelivery').val();
-    var move;
-    var penalty;
-    var crossbl;
 
-    database.transaction(function (tx) {
-        tx.executeSql(insertAutoStatement, [teamNum, matchNum, highScore, lowSore, gearDel, move, penalty, crossbl] )
-    })
-}
+
