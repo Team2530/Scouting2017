@@ -13,7 +13,6 @@ $(document).ready(function () {
         scoutname =$('#scoutname').val();
         matchNumer = $('#matchnumber').val();
         team = $('#teamnumber').val();
-
         //if(matchAlreadyExists()){
             //throwModal;
         //}else{
@@ -23,8 +22,7 @@ $(document).ready(function () {
             new Teleop(team, matchNumer, "", "", "", "", "", "", "", "", "", "", "", null),
             new Comments(team, matchNumer, "", null)
         );
-
-
+        match.save();
         $('#newmatch-modal').modal('hide');
     });
     $('#saveGeneral').on('click',function () {

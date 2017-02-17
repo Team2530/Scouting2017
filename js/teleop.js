@@ -26,14 +26,15 @@ droppedGear, rope, penalties, currTeleId) {
 
 var insertTeleopStatement = "INSERT INTO tele_op (team_num,  match_num,  " +
     "high_score, low_score, floor_col, hopper_col, human_load, gears_del, pickup, pickup_hu, dropped_gear, rope," +
-    " penalties) VALUES (?,?,?,?,?,?,?,?,?,?,?,?)";
+    " penalties) VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?)";
 function insertTele(tele) {
+
     database.transaction(function (tx) {
         tx.executeSql(insertTeleopStatement, [tele.teamNum, tele.matchNum, tele.highScore, tele.lowScore, tele.floorCol,
             tele.hopperCol, tele.humanLoad, tele.gearsDel, tele.pickup, tele.pickupHu, tele.droppedGear, tele.rope,
-        tele.penalties] )
+        tele.penalties] );
     });
-    return getMaxIndex("teleop");
+    return getMaxIndex("tele_op");
 }
 
 var updateAutoStatement = "UPDATE tele_op SET team_num = ?, match_num = ?, high_score = ?, low_score = ?,  " +
