@@ -39,7 +39,7 @@ function createAutoTable() {
     }, function (error) {
         console.log(error);
     }, function () {
-        console.log("Created general ok");
+        console.log("Created auto ok");
     });
 }
 
@@ -53,7 +53,7 @@ function createTeleopTable() {
     }, function (error) {
         console.log(error);
     }, function () {
-        console.log("Created general ok");
+        console.log("Created Teleop ok");
     });
 }
 
@@ -66,7 +66,7 @@ function createCommentsTable() {
     }, function (error) {
         console.log(error);
     }, function () {
-        console.log("Created general ok");
+        console.log("Created comments ok");
     });
 }
 
@@ -127,7 +127,7 @@ function updateMatchNum(id) {
     updateTable("comments", "match_num",num, id);
 }
 
-var pk = null;
+var pk;
 
 function getMaxIndex(table) {
     var selectStatement = "select MAX(id) from " + table;
