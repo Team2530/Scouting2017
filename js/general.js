@@ -28,7 +28,7 @@ function insertGeneral(general) {
 }
 
 var updateGeneralStatement = "UPDATE general SET team_num = ?, team_name = ?, scout_name = ?, match_num = ?, event = ?," +
-    " robot_play = ?, cur_robo_rank = ? WHERE id = ? "
+    " robot_play = ?, cur_robo_rank = ? WHERE id = ? ";
 
 
 

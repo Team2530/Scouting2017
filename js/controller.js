@@ -26,6 +26,10 @@ $(document).ready(function () {
         $('#newmatch-modal').modal('hide');
     });
     $('#saveGeneral').on('click',function () {
+        match.general.teamName = $("#teamname").val();
+        match.general.event = $("#event option:selected").text();
+        match.general.robotRank = $("#currentrobotranking").val();
+        match.general.robotPlay = $("#robotPlay option:selected").text();
         match.general.save();
     });
     $('#saveAuto').on('click', function () {
