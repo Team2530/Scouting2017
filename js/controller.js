@@ -33,15 +33,19 @@ $(document).ready(function () {
         match.general.save();
     });
     $('#saveAuto').on('click', function () {
+        match.auto.highScore = $("#hiscore").text();
+        match.auto.lowScore = $("#lowscore").text();
+        match.auto.gearDel = $("#geardelivery").val();
         match.auto.move = $("#didtheymove").val();
+        match.auto.penalty = $("#penalty").val();
         match.auto.save();
     });
     $('#saveTeleop').on('click',function () {
         match.teleop.save();
     });
     $('#saveComments').on('click', function () {
-        match.comments.comments = $("#comment").text();
-        console.log(match);
+        match.comments.comments = $("#comment").val();
+
         match.comments.save();
     });
 });

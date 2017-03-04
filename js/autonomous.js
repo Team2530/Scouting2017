@@ -8,6 +8,7 @@ function Autonomous(teamNum, matchNum, highScore, lowScore, gearDel, move, penal
     this.penalty = penalty;
     this.crossbl = crossbl;
     this.save = function () {
+        console.log(this);
         updateAuto(this);
     };
 }
@@ -31,6 +32,7 @@ function updateAuto(auto) {
         auto.move, auto.penalty, auto.crossbl, auto.teamNum, auto.matchNum], function (tx, results) {
             console.log(results);
         }, function (err) {
+            console.log("SQL TX Error");
             console.log(err);
         });
     });

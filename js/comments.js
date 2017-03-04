@@ -17,7 +17,7 @@ function insertComm(comm) {
     });
 }
 
-var updateCommentStatement = "UPDATE comment SET comments = ? WHERE teamNum = ? and " +
+var updateCommentStatement = "UPDATE comment SET comments = ? WHERE team_num = ? and " +
     "match_num = ?";
 
 function updateComm(comm){
