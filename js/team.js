@@ -4,9 +4,9 @@ function Team(general, auto, teleop, comments){
     this.teleop = teleop;
     this.comments = comments;
     this.save = function () {
-        this.general.save();
-        this.auto.save();
-        this.teleop.save();
-        this.comments.save();
+        insertGeneral(this.general);
+        insertAuto(this.auto);
+        insertTele(this.teleop);
+        insertComm(this.comments);
     }
 }

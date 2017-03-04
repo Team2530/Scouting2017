@@ -17,10 +17,10 @@ $(document).ready(function () {
             //throwModal;
         //}else{
         match = new Team(
-            new General(team, "", scoutname, matchNumer, "", "", "", null),
-            new Autonomous(team, matchNumer, "", "", "", "", "", "", null),
-            new Teleop(team, matchNumer, "", "", "", "", "", "", "", "", "", "", "", null),
-            new Comments(team, matchNumer, "", null)
+            new General(team, "", scoutname, matchNumer, "", "", ""),
+            new Autonomous(team, matchNumer, "", "", "", "", "", ""),
+            new Teleop(team, matchNumer, "", "", "", "", "", "", "", "", "", "", ""),
+            new Comments(team, matchNumer, "")
         );
         match.save();
         $('#newmatch-modal').modal('hide');
@@ -33,12 +33,15 @@ $(document).ready(function () {
         match.general.save();
     });
     $('#saveAuto').on('click', function () {
+        match.auto.move = $("#didtheymove").val();
         match.auto.save();
     });
     $('#saveTeleop').on('click',function () {
         match.teleop.save();
     });
     $('#saveComments').on('click', function () {
+        match.comments.comments = $("#comment").text();
+        console.log(match);
         match.comments.save();
     });
 });

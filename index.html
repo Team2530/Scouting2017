@@ -52,10 +52,6 @@
 		        <label for="teamname">Team name</label>
 		        <input type="text" id="teamname" class ="form-control" placeholder="Inconceivable" maxlength="30">  
 		    </div>
-	 	    <div class="col-md-6">
-		        <label for="teamnumber">Team number</label>
-	 	        <input type="text" id="teamnumber" class="form-control" placeholder="2530" maxlength="4">
-	        </div>
 	    </div>
 		<div class="row">
 			<div class="col-md-6">
@@ -63,14 +59,6 @@
 				</div>
 				<label for="robotpicture">Robot Picture</label>
 			</div>
-			<div class="col-md-3">
-				<label for="scoutname">Scout name</label>
-		        <input type="text" id="scoutname" class="form-control" placeholder="Caleb" maxlength="10">
-		    </div>
-	        <div class="col-md-3">
-				<label for= "matchnumber">Match number</label>
-				<input type="text" id="matchnumber" class="form-control" placeholder="1" maxlength="3">
-	        </div>
 	 	</div>
 	 	<div class="row">
 			<div class="col-md-12">
@@ -113,30 +101,30 @@
 		</div>
 			<div class="row">
 				<div class="col-md-6">
+					<!-- High hits and misses should be a text box for mistakes -->
 					<label for="highPlus">High</label>
 		        	<input type="button" class="btn btn-default" value="+" id="highPlus">
  			        <span id="highHits"></span>
 		            <label for="highMinus"></label>
 			        <input type="button" class="btn btn-default" value ="-" id="highMinus">
 			        <span id="highMisses"></span>
-					<label for="score">Score:</label>
-					<div id="score">
-					<span id="score"></span>
-					</div>
+					<label for="hiscore">Score:</label>
+					<span id="hiscore"></span>
+
+
 					<label for="lowPlus">Low</label>
  					<input type="button" class="btn btn-default" value = "+" id="lowPlus">
 					<span id="lowHits"></span>
 					<label for="lowMinus"></label>
 					<input type="button" class="btn btn-default" value="-" id="lowMinus">
 					<span id="lowMisses"></span>
-					<label for="score">Score:</label>
-					<span id="score"></span>
- 				    </div>
+					<label for="lowscore">Score:</label>
+					<span id="lowscore"></span>
+				</div>
 				<div class="col-md-6">
 					<select id="geardelivery">
 					<option value="Yes">Yes</option>
 					<option value="No">No</option>
-					<option value="Maybe">Maybe</option>
 					</select>
 				</div>
 

@@ -130,18 +130,13 @@ function updateMatchNum(id) {
 var pk;
 
 function getMaxIndex(table) {
-    var selectStatement = "select MAX(id) from " + table;
+    var selectStatement = "select MAX(id) as max_id from " + table;
 
     database.transaction(function (tx) {
         tx.executeSql(selectStatement, [],function (tx, results) {
-            var len = results.rows.length;
-            console.log(len);
-            if(len == 1){
-                pk = results.rows.item(0);
-            }
+            pk = results.rows.item(0).max_id;
         });
     });
-    return pk;
 }
 
 
